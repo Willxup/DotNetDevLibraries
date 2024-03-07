@@ -12,8 +12,8 @@
 
 # 🌏 目录
 
-- [基础学习(C#小技巧)](https://github.com/DotNetDevLibraires/blob/main/docs/cn/BasicLearning.md)
-- [实用工具源代码](https://github.com/DotNetDevLibraires/blob/main/docs/cn/PracticalTools.md)
+- [基础学习(C#小技巧)](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/BasicLearning.md)
+- [实用工具源代码](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/PracticalTools.md)
 - 配置封装
 - Redis
 - 数据库ORM
