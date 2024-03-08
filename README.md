@@ -14,8 +14,8 @@
 
 - [基础学习(C#小技巧)](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/BasicLearning.md)
 - [实用工具源代码](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/PracticalTools.md)
-- 配置封装
-- Redis
+- [配置封装](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/Configuration.md)
+- [Redis](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/Redis.md)
 - 数据库ORM
 - 消息队列
 - 网络请求
