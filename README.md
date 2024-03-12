@@ -16,7 +16,7 @@
 - [实用工具源代码](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/PracticalTools.md)
 - [配置封装](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/Configuration.md)
 - [Redis](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/Redis.md)
-- 数据库ORM
+- [数据库ORM](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/DbORM.md)
 - 消息队列
 - 网络请求
 - 邮件
