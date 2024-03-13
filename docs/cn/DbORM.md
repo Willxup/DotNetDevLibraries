@@ -9,13 +9,22 @@
 
 另外，`SqlSugar`解决问题的速度也很快，几乎当天解决，经过这么多年的迭代，几乎可以非常稳定的运行。
 
+支持的数据库：`Oracle`, `MySQL`, `SQLServer`, `PostgreSql`, `SqlLite`, `达梦`, `人大金仓` 等
+
 `Github`：[![GitHub Release](https://img.shields.io/github/v/release/DotNetNext/SqlSugar)](https://github.com/DotNetNext/SqlSugar)
 
 `Nuget`：[![NuGet Version](https://img.shields.io/nuget/v/SqlSugarCore)](https://www.nuget.org/packages/SqlSugarCore/)
 
 文档：[https://www.donet5.com/Home/Doc](https://www.donet5.com/Home/Doc)
 
-## 快速上手
+## 快速上手(以MySQL为例)
+
+### Nuget包
+
+```c#
+SqlSugarCoreNoDrive
+MySqlConnector //以mysql为例
+```
 
 ### IOC注入
 
