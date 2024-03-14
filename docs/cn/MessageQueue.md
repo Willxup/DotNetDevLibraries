@@ -113,7 +113,7 @@ builder.Services.AddCap(options =>
 ```
 
 
-### 快速上手
+### 简单使用
 
 - 推送消息
 ```c#

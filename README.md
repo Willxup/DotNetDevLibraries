@@ -18,10 +18,9 @@
 - [Redis](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/Redis.md)
 - [数据库ORM](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/DbORM.md)
 - [消息队列](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/MessageQueue.md)
-- 网络请求
-- 邮件
-- Office
-- 定时任务
+- [网络请求](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/Network.md)
+- [Office](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/Office.md)
+- [定时任务](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/ScheduledTasks.md)
 
 
 
