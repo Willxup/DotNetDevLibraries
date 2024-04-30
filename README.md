@@ -21,7 +21,7 @@
 - [网络请求](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/Network.md)
 - [Office](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/Office.md)
 - [定时任务](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/ScheduledTasks.md)
-- [配置中心](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/Middlewares.md)
+- [中间件](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/Middlewares.md)
 
 
 
