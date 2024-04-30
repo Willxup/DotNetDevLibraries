@@ -3,6 +3,7 @@
 # 目录
 
 - [Apollo配置中心](#Apollo配置中心)
+- [MySQL](#MySQL)
 
 
 
@@ -83,6 +84,10 @@ public class TestService
 ```
 
 ### 环境与依赖
+
+> 以下内容是基于`CentOS7`系统进行安装部署。
+
+
 
 - `Apollo`配置中心支持不同的环境，每个环境互相隔离。`Apollo`目前支持以下环境：
 	- `DEV` 开发环境
@@ -409,4 +414,168 @@ ExecStart=/data/apollo/start.sh
 TimeoutStartSec=0
 [Install]
 WantedBy=multi-user.target
+```
+
+
+
+# MySQL
+
+> 以下内容是基于`CentOS7`系统进行安装部署。
+
+
+
+## 安装MySQL
+
+在官网下载[MySQL安装包](https://dev.mysql.com/downloads/mysql/)，下载 `mysql-8.0.21-1.el7.x86_64.rpm-bundle.tar`
+
+```shell
+#解压压缩包
+tar -xvf  mysql-8.0.20-1.el7.x86_64.rpm-bundle.tar 
+
+#安装Common
+rpm -ivh mysql-community-common-8.0.21-1.el7.x86_64.rpm --nodeps --force
+
+#安装lib
+rpm -ivh mysql-community-libs-8.0.21-1.el7.x86_64.rpm
+
+#如果遇到error: Failed dependencies: mariadb-libs is obsoleted by mysql-community-libs-8.0.21-1.el7.x86_64，清除之前安装过的依赖mysql-libs
+yum remove mysql-libs
+
+#安装client
+rpm -ivh mysql-community-client-8.0.21-1.el7.x86_64.rpm
+
+#安装server
+rpm -ivh mysql-community-server-8.0.21-1.el7.x86_64.rpm
+
+#如果遇到error: Failed dependencies:libaio.so.1()(64bit) is needed by mysql-community-server... 需要安装libaio.so依赖
+yum install -y libaio
+
+```
+
+
+
+## 启动MySQL
+
+```shell
+#初始化数据库
+mysqld --initialize
+#设置文件所有者和文件关联组，拥有者皆设为mysql，群体的使用者mysql
+chown mysql:mysql -R /var/lib/mysql 
+#开启服务
+systemctl start mysqld.service
+#服务状态
+systemctl status  mysqld.service
+#服务自启
+systemctl enable mysqld.service
+```
+
+
+
+## 配置mysql
+
+> `mysql`的配置文件路径：`/etc/my.cnf`
+
+```shell
+#For advice on how to change settings please see
+# http://dev.mysql.com/doc/refman/8.0/en/server-configuration-defaults.html
+
+[mysql] #设置客户端
+# 设置mysql客户端默认字符集
+#default-character-set=utf8mb4
+
+[mysqld] #设置服务端
+#
+# Remove leading # and set to the amount of RAM for the most important data
+# cache in MySQL. Start at 70% of total RAM for dedicated server, else 10%.
+# innodb_buffer_pool_size = 128M
+#
+# Remove the leading "# " to disable binary logging
+# Binary logging captures changes between backups and is enabled by
+# default. It's default setting is log_bin=binlog
+# disable_log_bin
+#
+# Remove leading # to set options mainly useful for reporting servers.
+# The server defaults are faster for transactions and fast SELECTs.
+# Adjust sizes as needed, experiment to find the optimal values.
+# join_buffer_size = 128M
+# sort_buffer_size = 2M
+# read_rnd_buffer_size = 2M
+#
+# Remove leading # to revert to previous value for default_authentication_plugin,
+# this will increase compatibility with older clients. For background, see:
+# https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_default_authentication_plugin
+# default-authentication-plugin=mysql_native_password
+
+
+#设置端口号，默认3306
+#port=3306
+
+# 设置mysql的安装目录
+#basedir=/usr/local/mysql
+
+# 设置mysql数据库的数据的存放目录
+datadir=/usr/local/mysql/data
+socket=/var/lib/mysql/mysql.sock
+
+log-error=/var/log/mysqld.log
+pid-file=/var/run/mysqld/mysqld.pid
+
+# 允许最大连接数
+# max_connections=500
+
+# 服务端使用的字符集默认为8比特编码的latin1字符集
+#character-set-server=utf8mb4
+
+# 创建新表时将使用的默认存储引擎
+#default-storage-engine=INNODB
+#lower_case_table_names=1
+#max_allowed_packet=16M
+
+
+#跳过密码验证，之后会有获取密码的方式，如果找不到密码可以先设置跳过密码验证，改过密码后再注释掉
+#skip-grant-tables
+
+#设置performance_schema_max_table_instances 默认情况下为12500(修改后减少的内存占用很少)
+#performance_schema_max_table_instances=150
+
+#设置table_definition_cache默认情况下为2000(修改后减少内存明显)
+#table_definition_cache=400
+
+#设置table_open_cache默认情况下为4000(修改后减少的内存占用很少)
+#table_open_cache=2000
+
+#设置innodb_buffer_pool_size默认情况下为128M(修改后减少内存不明显,减少5M左右)
+#innodb_buffer_pool_size=64M
+```
+
+
+
+## 数据库设置
+
+```shell
+#获取初始密码
+grep password /var/log/mysqld.log 
+
+#登录
+mysql -uroot -p 
+
+#设置密码
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456'; 
+
+#重新加载权限表
+FLUSH PRIVILEGES;
+
+#开启远程登录授权
+CREATE USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123456'; 
+#赋权命令 以下命令二选一 
+# all privileges 当前用户所有权限 
+# *.*赋予所有权限 
+# with grant option允许级联赋权
+#1.任何主机访问都可以连接 '%'
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
+#2.指定主机访问可连接
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'192.168.0.1' WITH GRANT OPTION;
+
+#重新加载权限表
+FLUSH PRIVILEGES;
 ```
