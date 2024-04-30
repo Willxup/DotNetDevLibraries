@@ -1,7 +1,12 @@
-
 🚧**装修中...**
 
-# Apollo配置中心
+# 目录
+
+- [Apollo配置中心](#Apollo配置中心)
+
+
+
+## Apollo配置中心
 
 `Apollo`（阿波罗）是一款可靠的分布式配置管理中心，诞生于携程框架研发部，能够集中化管理应用不同环境、不同集群的配置，配置修改后能够实时推送到应用端，并且具备规范的权限、流程治理等特性，适用于微服务配置管理场景。
 
@@ -29,16 +34,16 @@
 
 文档地址：[https://www.apolloconfig.com/](https://www.apolloconfig.com/)
 
-## .NET客户端使用
+### .NET客户端使用
 
 `Apollo`的客户端使用起来非常简单，直接使用`.NET`原生获取配置的方式即可
 
-### `Nuget`依赖
+#### `Nuget`依赖
 ```
 Com.Ctrip.Framework.Apollo.Configuration
 ```
 
-### 配置
+#### 配置
 在`Program.cs`文件中进行配置
 ```c#
 builder.Host
@@ -53,7 +58,7 @@ builder.Host
 	});
 ```
 
-### 使用
+#### 使用
 
 直接使用`Microsoft.Extension`的配置即可。
 ```c#
@@ -77,7 +82,7 @@ public class TestService
 }
 ```
 
-## 环境与依赖
+### 环境与依赖
 
 - `Apollo`配置中心支持不同的环境，每个环境互相隔离。`Apollo`目前支持以下环境：
 	- `DEV` 开发环境
@@ -98,7 +103,7 @@ public class TestService
 		- [apolloportaldb.sql](https://github.com/apolloconfig/apollo/blob/master/scripts/sql/profiles/mysql-default/apolloportaldb.sql)
 		- [apolloconfigdb.sql](https://github.com/apolloconfig/apollo/blob/master/scripts/sql/profiles/mysql-default/apolloconfigdb.sql)
 
-## IP端口配置
+### IP端口配置
 
 让`Apollo`配置中心支持两套环境，需要先规划配置Apollo服务的IP和端口：
 - `Portal`：`127.0.0.1：8070`
@@ -109,32 +114,32 @@ public class TestService
 
 如果两个环境的数据库和准备部署`Apollo`的服务器不是同一个，可按需配置，配置方式也是相同的。
 
-## 数据库配置
+### 数据库配置
 
-### ApolloPortalDB
+#### ApolloPortalDB
 
 - 创建`ApolloPortalDB`数据库
 - 运行`apolloportaldb.sql`
 - 配置`ServerConfig`表中`apollo.portal.envs`的值，该值表示可支持的环境列表(例：`DEV,FAT`)
 
-### 开发环境ApolloConfigDB
+#### 开发环境ApolloConfigDB
 
 - 创建`ApolloConfigDB`数据库`dev`环境
 - 运行`apolloconfigdb.sql`
 - 配置`ServerConfig`表中`eureka.service.url`的值，该值就是`Config Service`的`http://IP:Port`地址(例：`http://127.0.0.1:8071/eureka/`)
 
-### 测试环境ApolloConfigDB_Test
+#### 测试环境ApolloConfigDB_Test
 
 - 创建`ApolloConfigDB_Test`数据库作为`fat`环境
 - 运行`apolloconfigdb.sql`
 - 配置`ServerConfig`表中`eureka.service.url`的值，该值就是`Config Service`的`http://IP:Port`地址(例：`http://127.0.0.1:8073/eureka/`)
 
-## 配置Portal
+### 配置Portal
 
 `Portal`作为管理界面，只需要部署一次即可。
 `Portal`首次登陆的默认账号为`apollo`，密码为`admin`。
 
-### 目录结构
+#### 目录结构
 
 解压`apollo-portal-2.2.0-github.zip`文件，将会得到以下结构目录：
 ```bash
@@ -152,7 +157,7 @@ public class TestService
 	- apollo-portal-2.2.0-sources.jar
 ```
 
-### 文件配置
+#### 文件配置
 
 - `apollo-portal.conf`
 > 配置`portal`的日志文件存储位置
@@ -200,11 +205,11 @@ export JAVA_OPTS="$JAVA_OPTS -XX:ParallelGCThreads=4 -XX:MaxTenuringThreshold=9 
 chmod +x *.sh
 ```
 
-## 配置Config Service
+### 配置Config Service
 
 `Config Service`提供配置的读取、推送等功能，所以再不同的环境下，需要再次部署该服务。
 
-### 目录结构
+#### 目录结构
 
 解压`apollo-configservice-2.2.0-github`文件，将会得到以下结构目录，可修改目录名称以支持不同的环境
 ```bash
@@ -220,7 +225,7 @@ chmod +x *.sh
 	- apollo-configservice-2.2.0-sources.jar
 ```
 
-### 文件配置
+#### 文件配置
 
 - `apollo-configservice.conf`
 > 配置`Config Service`的日志文件存储位置
@@ -251,14 +256,14 @@ SERVER_PORT=${SERVER_PORT:=8071}
 ## 配置Portal启动时JAVA选项，一般不进行改动
 export JAVA_OPTS="$JAVA_OPTS -XX:ParallelGCThreads=4 -XX:MaxTenuringThreshold=9 -XX:+DisableExplicitGC -XX:+ScavengeBeforeFullGC -XX:SoftRefLRUPolicyMSPerMB=0 -XX:+ExplicitGCInvokesConcurrent -XX:+HeapDumpOnOutOfMemoryError -XX:-OmitStackTraceInFastThrow -Duser.timezone=Asia/Shanghai -Dclient.encoding.override=UTF-8 -Dfile.encoding=UTF-8 -Djava.security.egd=file:/dev/./urandom"
 ```
- 
+
  - 授权
  > 赋予`scripts`目录下的`sh`脚本可执行权限
 ```bash
 chmod +x *.sh
 ```
 
-### 本地部署出现的问题
+#### 本地部署出现的问题
 
 `Apollo`客户端和`Portal`会从`Config Service`获取服务的地址（`IP+Port`），然后通过**服务地址**直接访问。而从`eureka`服务发现的页面会发现，服务地址变成了`公网IP`，这可能会导致`Apollo`客户端无法连接上`Config Service`，所以需要修改`startup.sh`配置`JAVA_OPTS`。
 ```shell
@@ -267,9 +272,9 @@ JAVA_OPTS="$JAVA_OPTS -Deureka.instance.ip-address=127.0.0.1"
 ```
 
 
-## 配置Admin Service
+### 配置Admin Service
 
-### 目录结构
+#### 目录结构
 
 解压`apollo-adminservice-2.2.0-github`文件，将会得到以下结构目录，可修改目录名称以支持不同的环境
 ```bash
@@ -285,7 +290,7 @@ JAVA_OPTS="$JAVA_OPTS -Deureka.instance.ip-address=127.0.0.1"
 	- apollo-adminservice-2.2.0-sources.jar
 ```
 
-### 文件配置
+#### 文件配置
 
 - `apollo-adminservice.conf`
 > 配置`Admin Service`的日志文件存储位置
@@ -323,7 +328,7 @@ export JAVA_OPTS="$JAVA_OPTS -XX:ParallelGCThreads=4 -XX:MaxTenuringThreshold=9 
 chmod +x *.sh
 ```
 
-### 本地部署出现的问题
+#### 本地部署出现的问题
 
 `Apollo`客户端和`Portal`会从`Config Service`获取服务的地址（`IP+Port`），然后通过**服务地址**直接访问。而从`eureka`服务发现的页面会发现，服务地址变成了`公网IP`，这可能会导致`Apollo`客户端无法连接上`Config Service`，所以需要修改`startup.sh`配置`JAVA_OPTS`。
 ```shell
@@ -331,11 +336,11 @@ chmod +x *.sh
 JAVA_OPTS="$JAVA_OPTS -Deureka.instance.ip-address=127.0.0.1"
 ```
 
-## 部署
+### 部署
 
 `Apollo`三个服务都需要启动，所以编写脚本启动是比较好的方式。
 
-### 启动脚本
+#### 启动脚本
 ```bash
 #!/bin/sh
 
@@ -362,7 +367,7 @@ cd /data/apollo/portal/scripts
 ./startup.sh
 ```
 
-### 停止脚本
+#### 停止脚本
 ```bash
 #!/bin/sh
 
@@ -389,7 +394,7 @@ cd /data/apollo/portal/scripts
 ./shutdown.sh
 ```
 
-### Systemd自启脚本
+#### Systemd自启脚本
 
 ```bash
 [Unit]
