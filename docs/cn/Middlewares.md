@@ -4,6 +4,7 @@
 
 - [Apollo配置中心](#Apollo配置中心)
 - [MySQL](#MySQL)
+- [Redis](#Redis)
 
 
 
@@ -578,4 +579,133 @@ GRANT ALL PRIVILEGES ON *.* TO 'root'@'192.168.0.1' WITH GRANT OPTION;
 
 #重新加载权限表
 FLUSH PRIVILEGES;
+```
+
+
+
+# Redis
+
+
+
+## 安装Redis
+
+> 以下内容是基于`CentOS7`系统进行安装部署。
+
+### yum安装
+
+```shell
+
+#下载fedora的epel仓库
+yum install epel-release
+yum install -y gcc-c++
+
+#搜索redis 两种方式都可行
+yum search redis --showduplicates
+yum list redis --showduplicates
+
+#安装redis，可以选择yum搜索redis的结果进行安装
+yum install redis
+
+#设置开机自启  
+systemctl enable redis
+
+#开启服务
+systemctl start redis
+```
+
+
+
+### 编译安装
+
+####  安装redis
+> `Redis`官网：[https://download.redis.io/releases](https://download.redis.io/releases)
+>
+> `Redis`安装包：[https://download.redis.io/releases/redis-6.2.6.tar.gz](https://download.redis.io/releases/redis-6.2.6.tar.gz)
+
+```shell
+#1.下载redis
+wget https://download.redis.io/releases/redis-6.2.6.tar.gz
+
+#2.解压
+tar -zxvf redis-6.2.6.tar.gz
+
+#3.进入解压后的文件编译安装 [[make编译]]
+make
+
+#如果遇到 zmalloc.h:50:31: 致命错误：jemalloc/jemalloc.h：没有那个文件或目录 需要指定MALLOC=libc
+make MALLOC=libc
+
+#4.安装  指定安装目录 PREFIX=/usr/local/redis
+make install 
+```
+
+#### 测试redis
+
+```bash
+#6.启动redis并指定redis.conf文件
+./redis-server /etc/redis/redis.conf
+
+#进入redis，测试是否可用
+redis-cli
+#验证(用户名 密码)
+auth password
+
+#杀死redis进程
+kill -9 xxx
+```
+
+#### 配置service文件
+
+可参考[[服务管理]]
+```bash
+#7.创建redis的unit服务文件
+cd /etc/systemd/system
+touch redis.service
+##########################################
+[Unit]
+Description=Redis persistent key-value database
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/redis-server /etc/redis/redis.conf 
+#--supervised systemd
+#ExecStop=/usr/libexec/redis-shutdown
+Type=forking
+#User=redis
+#Group=redis
+#RuntimeDirectory=redis
+
+[Install]
+WantedBy=multi-user.target
+##########################################
+
+#重启服务
+systemctl restart redis 
+```
+
+
+
+## 配置redis
+
+```shell
+#如果没有redis配置目录，就创建一个
+mkdir /etc/redis
+
+#编辑redis配置文件
+#将redis.conf移至/etc/redis路径下
+vim /etc/redis/redis.conf 
+```
+
+根据下面的参数解释，配置`redis`
+```shell
+#可查看redis.conf中文版，阿里云盘保存
+bind 127.0.0.1 #注释该配置。配置可访问的IP，当保护模式打开时，如果未设置密码，需要配置外部ip使外部ip可访问
+port 6379 #redis端口号
+daemonize yes  #开启守护进程模式，redis后台运行(如果docker部署的话,要设置为no,否则后台运行会冲突)
+protected-mode yes #保护模式开启。保护模式开启时在【没有密码】时通过bind ip控制外网可访问的ip
+dir /opt/redis #保存redis数据的目录
+logfile /var/log/redis/redis-server.log #保存redis日志的位置 
+requirepass 123456  #设置密码
+appendonly yes #持久化存储
+databases 16 #redis数据库数量 默认16个数据库，可按需设置
 ```
