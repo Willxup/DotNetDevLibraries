@@ -194,7 +194,7 @@ public class TestService : ITestService
 
 ### 简单实用
 
-使用`SqlSugar.Attributes`可以直接配置DTO模型，配置完成后，将会自动映射查询条件及结果。这里仅简单展示查询方式，更多的细节可以前往[SqlSugar.Attributes](https://github.com/Willxup/SqlSugar.Attributes)查看。
+使用`SqlSugar.Attributes`可以直接配置DTO模型，配置完成后，将会自动映射查询条件及结果。这里仅简单展示查询方式，更多的细节可以前往[SqlSugar.Attributes](https://github.com/Willxup/SqlSugar.Attributes)查看或参考[FastAdminAPI](https://github.com/Willxup/FastAdminAPI)项目了解更多。
 
 - 引入Nuget包
 ```c#
