@@ -22,6 +22,7 @@
 - [Office](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/Office.md)
 - [定时任务](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/ScheduledTasks.md)
 - [中间件](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/Middlewares.md)
+- [VisualStudio](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/VisualStudio.md)
 
 
 
