@@ -37,7 +37,7 @@ config
 		{
 			Db = configuration.GetValue<int>("Redis.DbNum"),
 			Prefix = "FastAdminAPI_Hangfire:"
-		}).WithJobExpirationTimeout(TimeSpan.FromDays(7))
+		}).WithJobExpirationTimeout(TimeSpan.FromDays(1))
 );
 //用于启动hangfire
 builder.Services.AddHangfireServer();
@@ -77,7 +77,7 @@ app.UseEndpoints(endpoints => { endpoints.MapHangfireDashboard(); });
 
 - 任务
 ```c#
-public abstract class BaseTask
+public abstract class BaseScheduleJob
 {
 	/// <summary>
 	/// 子类实现的要做的事情
@@ -85,7 +85,7 @@ public abstract class BaseTask
 	public abstract Task Run();
 }
 
-public class TestTask : BaseTask
+public class TestSchedule : BaseScheduleJob
 {
 	public override async Task Run()
 	{
@@ -104,7 +104,7 @@ RecurringJobOptions options = new()
 };
 
 //实例化任务，只要继承了BaseTask的类就可以实例化
-BaseTask task = Activator.CreateInstance(typeof(TestTask)) as BaseTask;
+BaseTask task = Activator.CreateInstance(typeof(TestSchedule)) as BaseTask;
 
 
 //添加定时任务 
