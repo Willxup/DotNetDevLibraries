@@ -10,19 +10,19 @@ This is a collection of open-source projects, libraries, and NuGet packages for 
 
 ## 🌏 Contents
 
-The guides linked below are currently in Chinese.
+Guides marked “Chinese” have not been translated yet.
 
-- [Basics (C# Tips)](./docs/cn/BasicLearning.md)
-- [Utility Code](./docs/cn/PracticalTools.md)
-- [Configuration](./docs/cn/Configuration.md)
-- [Redis](./docs/cn/Redis.md)
-- [Database ORMs](./docs/cn/DbORM.md)
-- [Message Queues](./docs/cn/MessageQueue.md)
-- [Network Requests](./docs/cn/Network.md)
-- [Office](./docs/cn/Office.md)
-- [Scheduled Tasks](./docs/cn/ScheduledTasks.md)
-- [Middleware](./docs/cn/Middlewares.md)
-- [Visual Studio](./docs/cn/VisualStudio.md)
+- [Basics (C# Tips)](./docs/en/BasicLearning.md)
+- [Utility Code](./docs/cn/PracticalTools.md) (Chinese)
+- [Configuration](./docs/cn/Configuration.md) (Chinese)
+- [Redis](./docs/cn/Redis.md) (Chinese)
+- [Database ORMs](./docs/cn/DbORM.md) (Chinese)
+- [Message Queues](./docs/cn/MessageQueue.md) (Chinese)
+- [Network Requests](./docs/cn/Network.md) (Chinese)
+- [Office](./docs/cn/Office.md) (Chinese)
+- [Scheduled Tasks](./docs/cn/ScheduledTasks.md) (Chinese)
+- [Middleware](./docs/cn/Middlewares.md) (Chinese)
+- [Visual Studio](./docs/cn/VisualStudio.md) (Chinese)
 
 ## ⭐ Why These Libraries?
 

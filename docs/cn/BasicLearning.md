@@ -1,8 +1,14 @@
+<p align="center">
+  <a href="../en/BasicLearning.md">English</a> ｜ <a href="../cn/BasicLearning.md"><strong>简体中文</strong></a>
+</p>
+
+[← 返回目录](../../README.zh.md)
+
 # 目录
 
 - [官网网站](#官网网站)
 - [开发小技巧](#开发小技巧)
-  - [LINQ](#LINQ)
+  - [LINQ](#linq)
   - [语法糖](#语法糖)
 
 
