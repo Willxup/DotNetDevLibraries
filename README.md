@@ -1,41 +1,38 @@
-# 🚀 DotNetDevLibraires
+# 🚀 DotNetDevLibraries
 
-❄️ 欢迎来到 [DotNet开发库](https://github.com/Willxup/DotNetDevLibraries)! ❄️
+<p align="center">
+  <a href="./README.md"><strong>English</strong></a> ｜ <a href="./README.zh.md">简体中文</a>
+</p>
 
-在这个存储库中，我们有一组用于DotNet开发的开源项目、库和NuGet包。目标很简单，就是增强您的开发工作流程，提高生产力，并告别重新发明轮子。在这里，不会收录大批量的docs，只会收录一些用过的、经过验证的库，简单使用，快速开发。
+❄️ Welcome to [DotNetDevLibraries](./)! ❄️
 
+This is a collection of open-source projects, libraries, and NuGet packages for .NET development. It aims to make everyday development easier and save you from writing code that already exists. The focus is on libraries we have used and tested, with practical examples to help you get started quickly.
 
+## 🌏 Contents
 
-# 🌏 目录
+The guides linked below are currently in Chinese.
 
-- [基础学习(C#小技巧)](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/BasicLearning.md)
-- [实用工具源代码](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/PracticalTools.md)
-- [配置封装](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/Configuration.md)
-- [Redis](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/Redis.md)
-- [数据库ORM](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/DbORM.md)
-- [消息队列](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/MessageQueue.md)
-- [网络请求](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/Network.md)
-- [Office](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/Office.md)
-- [定时任务](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/ScheduledTasks.md)
-- [中间件](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/Middlewares.md)
-- [VisualStudio](https://github.com/Willxup/DotNetDevLibraries/tree/main/docs/cn/VisualStudio.md)
+- [Basics (C# Tips)](./docs/cn/BasicLearning.md)
+- [Utility Code](./docs/cn/PracticalTools.md)
+- [Configuration](./docs/cn/Configuration.md)
+- [Redis](./docs/cn/Redis.md)
+- [Database ORMs](./docs/cn/DbORM.md)
+- [Message Queues](./docs/cn/MessageQueue.md)
+- [Network Requests](./docs/cn/Network.md)
+- [Office](./docs/cn/Office.md)
+- [Scheduled Tasks](./docs/cn/ScheduledTasks.md)
+- [Middleware](./docs/cn/Middlewares.md)
+- [Visual Studio](./docs/cn/VisualStudio.md)
 
+## ⭐ Why These Libraries?
 
+- Simplify development with reliable, verified libraries.
+- Improve your projects with open-source tools.
+- Work with other developers to support the .NET community.
 
-# ⭐ 选择
+## 🍾 Contribute
 
-- 使用经过验证的可靠库简化开发过程
-- 利用开源创新的力量来增强您的项目
-- 与志同道合的开发人员合作，推动DotNet开发的生态
-
-
-
-# 🍾 贡献
-
-- 在存储库中找到适合您的特定需求的工具
-
-- 贡献你自己喜欢的开源项目、库及Nuget包来丰富我们的社区
-
-- 让我们共同建设一个更强大、更高效的DotNet发展生态系统
-
-- 加入DotNetDevLibraries，帮助有需要的人们!   💻✨
+- Find tools in this repository that meet your needs.
+- Share your favorite open-source projects, libraries, and NuGet packages with the community.
+- Help build a stronger, more productive .NET development community.
+- Join DotNetDevLibraries and help other developers! 💻✨
