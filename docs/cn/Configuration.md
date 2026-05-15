@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="../en/Configuration.md">English</a> ｜ <a href="../cn/Configuration.md"><strong>简体中文</strong></a>
+</p>
+
+[← 返回目录](../../README.zh.md)
+
 # 目录
 
 - [基础配置](#基础配置)
