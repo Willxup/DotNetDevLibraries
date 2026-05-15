@@ -13,7 +13,7 @@ This is a collection of open-source projects, libraries, and NuGet packages for 
 Guides marked “Chinese” have not been translated yet.
 
 - [Basics (C# Tips)](./docs/en/BasicLearning.md)
-- [Utility Code](./docs/cn/PracticalTools.md) (Chinese)
+- [Utility Code](./docs/en/PracticalTools.md)
 - [Configuration](./docs/cn/Configuration.md) (Chinese)
 - [Redis](./docs/cn/Redis.md) (Chinese)
 - [Database ORMs](./docs/cn/DbORM.md) (Chinese)

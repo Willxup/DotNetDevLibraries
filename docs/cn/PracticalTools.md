@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="../en/PracticalTools.md">English</a> ｜ <a href="../cn/PracticalTools.md"><strong>简体中文</strong></a>
+</p>
+
+[← 返回目录](../../README.zh.md)
+
 # 目录
 
 - [小工具源码](#小工具)
