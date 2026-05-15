@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="../en/Redis.md">English</a> ｜ <a href="../cn/Redis.md"><strong>简体中文</strong></a>
+</p>
+
+[← 返回目录](../../README.zh.md)
+
 # StackExchange.Redis
 
 ## 介绍

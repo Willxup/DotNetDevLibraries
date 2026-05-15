@@ -15,7 +15,7 @@ Guides marked “Chinese” have not been translated yet.
 - [Basics (C# Tips)](./docs/en/BasicLearning.md)
 - [Utility Code](./docs/en/PracticalTools.md)
 - [Configuration](./docs/en/Configuration.md)
-- [Redis](./docs/cn/Redis.md) (Chinese)
+- [Redis](./docs/en/Redis.md)
 - [Database ORMs](./docs/cn/DbORM.md) (Chinese)
 - [Message Queues](./docs/cn/MessageQueue.md) (Chinese)
 - [Network Requests](./docs/cn/Network.md) (Chinese)
