@@ -16,7 +16,7 @@ Guides marked “Chinese” have not been translated yet.
 - [Utility Code](./docs/en/PracticalTools.md)
 - [Configuration](./docs/en/Configuration.md)
 - [Redis](./docs/en/Redis.md)
-- [Database ORMs](./docs/cn/DbORM.md) (Chinese)
+- [Database ORMs](./docs/en/DbORM.md)
 - [Message Queues](./docs/cn/MessageQueue.md) (Chinese)
 - [Network Requests](./docs/cn/Network.md) (Chinese)
 - [Office](./docs/cn/Office.md) (Chinese)

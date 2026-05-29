@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="../en/DbORM.md">English</a> ｜ <a href="../cn/DbORM.md"><strong>简体中文</strong></a>
+</p>
+
+[← 返回目录](../../README.zh.md)
+
 # SqlSugar
 
 ## 介绍
