@@ -19,7 +19,7 @@ Guides marked “Chinese” have not been translated yet.
 - [Database ORMs](./docs/en/DbORM.md)
 - [Message Queues](./docs/en/MessageQueue.md)
 - [Network Requests](./docs/en/Network.md)
-- [Office](./docs/cn/Office.md) (Chinese)
+- [Office](./docs/en/Office.md)
 - [Scheduled Tasks](./docs/cn/ScheduledTasks.md) (Chinese)
 - [Middleware](./docs/cn/Middlewares.md) (Chinese)
 - [Visual Studio](./docs/cn/VisualStudio.md) (Chinese)
