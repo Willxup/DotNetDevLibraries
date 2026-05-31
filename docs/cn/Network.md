@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="../en/Network.md">English</a> ｜ <a href="../cn/Network.md"><strong>简体中文</strong></a>
+</p>
+
+[← 返回目录](../../README.zh.md)
+
 # Refit
 
 ## 介绍

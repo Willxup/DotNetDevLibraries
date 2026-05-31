@@ -18,7 +18,7 @@ Guides marked “Chinese” have not been translated yet.
 - [Redis](./docs/en/Redis.md)
 - [Database ORMs](./docs/en/DbORM.md)
 - [Message Queues](./docs/en/MessageQueue.md)
-- [Network Requests](./docs/cn/Network.md) (Chinese)
+- [Network Requests](./docs/en/Network.md)
 - [Office](./docs/cn/Office.md) (Chinese)
 - [Scheduled Tasks](./docs/cn/ScheduledTasks.md) (Chinese)
 - [Middleware](./docs/cn/Middlewares.md) (Chinese)
