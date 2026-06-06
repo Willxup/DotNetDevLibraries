@@ -20,7 +20,7 @@ Guides marked “Chinese” have not been translated yet.
 - [Message Queues](./docs/en/MessageQueue.md)
 - [Network Requests](./docs/en/Network.md)
 - [Office](./docs/en/Office.md)
-- [Scheduled Tasks](./docs/cn/ScheduledTasks.md) (Chinese)
+- [Scheduled Tasks](./docs/en/ScheduledTasks.md)
 - [Middleware](./docs/cn/Middlewares.md) (Chinese)
 - [Visual Studio](./docs/cn/VisualStudio.md) (Chinese)
 
