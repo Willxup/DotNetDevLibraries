@@ -21,7 +21,7 @@ Guides marked “Chinese” have not been translated yet.
 - [Network Requests](./docs/en/Network.md)
 - [Office](./docs/en/Office.md)
 - [Scheduled Tasks](./docs/en/ScheduledTasks.md)
-- [Middleware](./docs/cn/Middlewares.md) (Chinese)
+- [Middleware](./docs/en/Middlewares.md)
 - [Visual Studio](./docs/cn/VisualStudio.md) (Chinese)
 
 ## ⭐ Why These Libraries?
