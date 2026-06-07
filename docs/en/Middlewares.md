@@ -8,8 +8,7 @@
 
 - [Apollo Configuration Center](#apollo-configuration-center)
 - [MySQL](#mysql)
-
-The [Redis](../cn/Middlewares.md#redis) section is currently available in Chinese.
+- [Redis](#redis)
 
 
 
@@ -582,4 +581,131 @@ GRANT ALL PRIVILEGES ON *.* TO 'root'@'192.168.0.1' WITH GRANT OPTION;
 
 # Reload the privilege tables
 FLUSH PRIVILEGES;
+```
+
+# Redis
+
+
+
+## Install Redis
+
+> The following installation and deployment steps use `CentOS7`.
+
+### Install with yum
+
+```shell
+
+# Download the Fedora EPEL repository
+yum install epel-release
+yum install -y gcc-c++
+
+# Search for Redis using either command
+yum search redis --showduplicates
+yum list redis --showduplicates
+
+# Install Redis; you can choose a result from the yum search
+yum install redis
+
+# Enable startup at boot
+systemctl enable redis
+
+# Start the service
+systemctl start redis
+```
+
+
+
+### Build and Install
+
+#### Install Redis
+> `Redis` official site: [https://download.redis.io/releases](https://download.redis.io/releases)
+>
+> `Redis` installation package: [https://download.redis.io/releases/redis-6.2.6.tar.gz](https://download.redis.io/releases/redis-6.2.6.tar.gz)
+
+```shell
+# 1. Download Redis
+wget https://download.redis.io/releases/redis-6.2.6.tar.gz
+
+# 2. Extract the archive
+tar -zxvf redis-6.2.6.tar.gz
+
+# 3. Enter the extracted directory and compile using make
+make
+
+# If zmalloc.h:50:31 reports fatal error: jemalloc/jemalloc.h: No such file or directory, specify MALLOC=libc
+make MALLOC=libc
+
+# 4. Install with PREFIX=/usr/local/redis as the installation directory
+make install
+```
+
+#### Test Redis
+
+```bash
+# 6. Start Redis with the redis.conf file
+./redis-server /etc/redis/redis.conf
+
+# Open Redis and test whether it works
+redis-cli
+# Authenticate (username and password)
+auth password
+
+# Kill the Redis process
+kill -9 xxx
+```
+
+#### Configure the Service File
+
+See service management for more details.
+```bash
+# 7. Create the Redis systemd unit file
+cd /etc/systemd/system
+touch redis.service
+##########################################
+[Unit]
+Description=Redis persistent key-value database
+After=network.target
+
+[Service]
+ExecStart=/usr/local/bin/redis-server /etc/redis/redis.conf
+#--supervised systemd
+#ExecStop=/usr/libexec/redis-shutdown
+Type=forking
+#User=redis
+#Group=redis
+#RuntimeDirectory=redis
+
+[Install]
+WantedBy=multi-user.target
+##########################################
+
+# Restart the service
+systemctl restart redis
+```
+
+
+
+## Configure Redis
+
+```shell
+# Create the Redis configuration directory if it does not exist
+mkdir /etc/redis
+
+# Edit the Redis configuration file
+# Move redis.conf to /etc/redis
+vim /etc/redis/redis.conf
+```
+
+Configure `redis` using the parameter descriptions below:
+```shell
+# A Chinese redis.conf is saved on Alibaba Cloud Drive
+bind 127.0.0.1 # Comment out this setting. Set allowed IPs; with protected mode on and no password, set an external IP to allow access
+port 6379 # Redis port
+daemonize yes  # Enable daemon mode to run Redis in the background (set to no in Docker to avoid a conflict)
+protected-mode yes # Enable protected mode. Without a password, use bind IPs to control external access
+dir /opt/redis # Directory for Redis data
+logfile /var/log/redis/redis-server.log # Location of the Redis log
+requirepass 123456  # Set the password
+appendonly yes # Persistent storage
+databases 16 # Number of Redis databases (default: 16); change as needed
 ```
