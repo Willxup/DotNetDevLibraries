@@ -7,8 +7,9 @@
 # Contents
 
 - [Apollo Configuration Center](#apollo-configuration-center)
+- [MySQL](#mysql)
 
-The [MySQL](../cn/Middlewares.md#mysql) and [Redis](../cn/Middlewares.md#redis) sections are currently available in Chinese.
+The [Redis](../cn/Middlewares.md#redis) section is currently available in Chinese.
 
 
 
@@ -419,4 +420,166 @@ ExecStart=/data/apollo/start.sh
 TimeoutStartSec=0
 [Install]
 WantedBy=multi-user.target
+```
+
+# MySQL
+
+> The following installation and deployment steps use `CentOS7`.
+
+
+
+## Install MySQL
+
+Download the [MySQL installation package](https://dev.mysql.com/downloads/mysql/) from the official site: `mysql-8.0.21-1.el7.x86_64.rpm-bundle.tar`.
+
+```shell
+# Extract the archive
+tar -xvf  mysql-8.0.20-1.el7.x86_64.rpm-bundle.tar
+
+# Install Common
+rpm -ivh mysql-community-common-8.0.21-1.el7.x86_64.rpm --nodeps --force
+
+# Install lib
+rpm -ivh mysql-community-libs-8.0.21-1.el7.x86_64.rpm
+
+# If you see error: Failed dependencies: mariadb-libs is obsoleted by mysql-community-libs-8.0.21-1.el7.x86_64, remove the previously installed mysql-libs dependency
+yum remove mysql-libs
+
+# Install client
+rpm -ivh mysql-community-client-8.0.21-1.el7.x86_64.rpm
+
+# Install server
+rpm -ivh mysql-community-server-8.0.21-1.el7.x86_64.rpm
+
+# If you see error: Failed dependencies:libaio.so.1()(64bit) is needed by mysql-community-server..., install the libaio.so dependency
+yum install -y libaio
+
+```
+
+
+
+## Start MySQL
+
+```shell
+# Initialize the database
+mysqld --initialize
+# Set the file owner and group to mysql
+chown mysql:mysql -R /var/lib/mysql
+# Start the service
+systemctl start mysqld.service
+# Check service status
+systemctl status  mysqld.service
+# Enable the service at startup
+systemctl enable mysqld.service
+```
+
+
+
+## Configure MySQL
+
+> The `mysql` configuration file is at `/etc/my.cnf`.
+
+```shell
+#For advice on how to change settings please see
+# http://dev.mysql.com/doc/refman/8.0/en/server-configuration-defaults.html
+
+[mysql] # Configure the client
+# Set the default MySQL client character set
+#default-character-set=utf8mb4
+
+[mysqld] # Configure the server
+#
+# Remove leading # and set to the amount of RAM for the most important data
+# cache in MySQL. Start at 70% of total RAM for dedicated server, else 10%.
+# innodb_buffer_pool_size = 128M
+#
+# Remove the leading "# " to disable binary logging
+# Binary logging captures changes between backups and is enabled by
+# default. It's default setting is log_bin=binlog
+# disable_log_bin
+#
+# Remove leading # to set options mainly useful for reporting servers.
+# The server defaults are faster for transactions and fast SELECTs.
+# Adjust sizes as needed, experiment to find the optimal values.
+# join_buffer_size = 128M
+# sort_buffer_size = 2M
+# read_rnd_buffer_size = 2M
+#
+# Remove leading # to revert to previous value for default_authentication_plugin,
+# this will increase compatibility with older clients. For background, see:
+# https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_default_authentication_plugin
+# default-authentication-plugin=mysql_native_password
+
+
+# Set the port (default: 3306)
+#port=3306
+
+# Set the MySQL installation directory
+#basedir=/usr/local/mysql
+
+# Set the MySQL data directory
+datadir=/usr/local/mysql/data
+socket=/var/lib/mysql/mysql.sock
+
+log-error=/var/log/mysqld.log
+pid-file=/var/run/mysqld/mysqld.pid
+
+# Maximum allowed connections
+# max_connections=500
+
+# The server character set defaults to 8-bit latin1
+#character-set-server=utf8mb4
+
+# Default storage engine for new tables
+#default-storage-engine=INNODB
+#lower_case_table_names=1
+#max_allowed_packet=16M
+
+
+# The password can be retrieved later. If it cannot be found, skip verification temporarily; comment this out after changing it
+#skip-grant-tables
+
+# Set performance_schema_max_table_instances (default: 12500; changing it saves little memory)
+#performance_schema_max_table_instances=150
+
+# Set table_definition_cache (default: 2000; changing it reduces memory use noticeably)
+#table_definition_cache=400
+
+# Set table_open_cache (default: 4000; changing it saves little memory)
+#table_open_cache=2000
+
+# Set innodb_buffer_pool_size (default: 128M; changing it saves little memory, about 5M)
+#innodb_buffer_pool_size=64M
+```
+
+
+
+## Database Settings
+
+```shell
+# Get the initial password
+grep password /var/log/mysqld.log
+
+# Log in
+mysql -uroot -p
+
+# Set the password
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';
+
+# Reload the privilege tables
+FLUSH PRIVILEGES;
+
+# Enable remote login
+CREATE USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY '123456';
+# Grant privileges: choose one of the following commands
+# all privileges: all privileges for the current user
+# *.*: grant all privileges
+# with grant option: allow privileges to be granted to others
+# 1. Allow connections from any host '%'
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
+# 2. Allow connections from a specified host
+GRANT ALL PRIVILEGES ON *.* TO 'root'@'192.168.0.1' WITH GRANT OPTION;
+
+# Reload the privilege tables
+FLUSH PRIVILEGES;
 ```
