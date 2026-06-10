@@ -10,8 +10,6 @@ This is a collection of open-source projects, libraries, and NuGet packages for 
 
 ## 🌏 Contents
 
-Guides marked “Chinese” have not been translated yet.
-
 - [Basics (C# Tips)](./docs/en/BasicLearning.md)
 - [Utility Code](./docs/en/PracticalTools.md)
 - [Configuration](./docs/en/Configuration.md)
@@ -22,7 +20,7 @@ Guides marked “Chinese” have not been translated yet.
 - [Office](./docs/en/Office.md)
 - [Scheduled Tasks](./docs/en/ScheduledTasks.md)
 - [Middleware](./docs/en/Middlewares.md)
-- [Visual Studio](./docs/cn/VisualStudio.md) (Chinese)
+- [Visual Studio](./docs/en/VisualStudio.md)
 
 ## ⭐ Why These Libraries?
 

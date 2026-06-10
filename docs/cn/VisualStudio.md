@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="../en/VisualStudio.md">English</a> ｜ <a href="../cn/VisualStudio.md"><strong>简体中文</strong></a>
+</p>
+
+[← 返回目录](../../README.zh.md)
+
 # IntelliSense本地化
 
 ## NET6之前的版本汉化
