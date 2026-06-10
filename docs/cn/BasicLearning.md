@@ -53,7 +53,7 @@ List<Student> students = new List<Student>
 };  
 
 // 使用WHERE筛选出成绩为A的学生  
-var result1 = students.Where(student => student.Grade = "A");  
+var result1 = students.Where(student => student.Grade == "A");
 
 // 使用WHERE筛选出年龄大于20的学生  
 var result2 = students.Where(student => student.Age > 20);  
@@ -249,7 +249,7 @@ var result = students
     .Where(student => student.Age > 20) // WHERE: 选择年龄大于20的学生  
     .GroupBy(student => student.Grade)  // GROUP BY: 按成绩分组  
     .Select(group => group.OrderBy(student => student.Age).First().Name) // SELECT: 选择每个分组中年龄最小的学生的姓名  
-    .ToList(); //转换为List<Student>()  
+    .ToList(); //转换为List<string>()
 
 //输出结果  
 ["Charlie","Damon","David"]

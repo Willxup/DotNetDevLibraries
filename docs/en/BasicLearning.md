@@ -53,7 +53,7 @@ List<Student> students = new List<Student>
 };
 
 // Use WHERE to select students with grade A
-var result1 = students.Where(student => student.Grade = "A");
+var result1 = students.Where(student => student.Grade == "A");
 
 // Use WHERE to select students over age 20
 var result2 = students.Where(student => student.Age > 20);
@@ -249,7 +249,7 @@ var result = students
     .Where(student => student.Age > 20) // WHERE: Select students over age 20
     .GroupBy(student => student.Grade)  // GROUP BY: Group by grade
     .Select(group => group.OrderBy(student => student.Age).First().Name) // SELECT: Select the name of the youngest student in each group
-    .ToList(); // Convert to List<Student>()
+    .ToList(); // Convert to List<string>()
 
 // Output
 ["Charlie","Damon","David"]
