@@ -12,7 +12,7 @@
 
 另外，`SqlSugar`解决问题的速度也很快，几乎当天解决，经过这么多年的迭代，几乎可以非常稳定的运行。
 
-支持的数据库：`Oracle`, `MySQL`, `SQLServer`, `PostgreSql`, `SqlLite`, `达梦`, `人大金仓` 等
+支持的数据库：`Oracle`, `MySQL`, `SQLServer`, `PostgreSql`, `SQLite`, `达梦`, `人大金仓` 等
 
 `Github`：[![GitHub Release](https://img.shields.io/github/v/release/DotNetNext/SqlSugar)](https://github.com/DotNetNext/SqlSugar)
 
@@ -122,10 +122,10 @@ public class TestService : ITestService
 	/// 获取
 	/// </summary>
 	/// <returns></returns>
-	public async Task<Table_Name> Get()
+	public async Task<List<Table_Name>> Get()
 	{
 		return await _dbContext.Queryable<Table_Name>()
-			.Where(t => t.Name = "test")
+			.Where(t => t.Name == "test")
 			.ToListAsync();
 	}
 
@@ -133,10 +133,10 @@ public class TestService : ITestService
 	/// 获取DTO
 	/// </summary>
 	/// <returns></returns>
-	public async Task<Table_Name> GetDTO()
+	public async Task<List<TableDTO>> GetDTO()
 	{
 		return await _dbContext.Queryable<Table_Name>()
-			.Where(t => t.Name = "test")
+			.Where(t => t.Name == "test")
 			.Select(t => new TableDTO
 			{
 				Id = t.Id,
@@ -261,7 +261,7 @@ public class Test
 }
 ```
 
-注：在使用`SqlSugar.Attribute`时，依然可以使用`SqlSugar`的`Where`，`GroupBy`，`OrderBy`等方法。
+注：在使用`SqlSugar.Attributes`时，依然可以使用`SqlSugar`的`Where`，`GroupBy`，`OrderBy`等方法。
 
 - 正常查询SQL
 

@@ -122,10 +122,10 @@ public class TestService : ITestService
 	/// Get
 	/// </summary>
 	/// <returns></returns>
-	public async Task<Table_Name> Get()
+	public async Task<List<Table_Name>> Get()
 	{
 		return await _dbContext.Queryable<Table_Name>()
-			.Where(t => t.Name = "test")
+			.Where(t => t.Name == "test")
 			.ToListAsync();
 	}
 
@@ -133,10 +133,10 @@ public class TestService : ITestService
 	/// Get a DTO
 	/// </summary>
 	/// <returns></returns>
-	public async Task<Table_Name> GetDTO()
+	public async Task<List<TableDTO>> GetDTO()
 	{
 		return await _dbContext.Queryable<Table_Name>()
-			.Where(t => t.Name = "test")
+			.Where(t => t.Name == "test")
 			.Select(t => new TableDTO
 			{
 				Id = t.Id,
@@ -261,7 +261,7 @@ public class Test
 }
 ```
 
-Note: When using `SqlSugar.Attribute`, you can still use `SqlSugar` methods such as `Where`, `GroupBy`, and `OrderBy`.
+Note: When using `SqlSugar.Attributes`, you can still use `SqlSugar` methods such as `Where`, `GroupBy`, and `OrderBy`.
 
 - SQL query
 
