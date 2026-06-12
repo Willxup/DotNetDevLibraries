@@ -154,7 +154,7 @@ builder.Services.AddSwagger("swagger", AppContext.BaseDirectory); //调用上面
 WebApplication app = builder.Build();
 
 app.UseSwagger();
-app.UseSwaggerUI(option => 
+app.UseSwaggerUI(options =>
 {
 	//根据版本名称正序 遍历展示
 	options.SwaggerEndpoint($"/swagger/swagger.json", $"swagger");

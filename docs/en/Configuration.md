@@ -154,7 +154,7 @@ builder.Services.AddSwagger("swagger", AppContext.BaseDirectory); // Call the cu
 WebApplication app = builder.Build();
 
 app.UseSwagger();
-app.UseSwaggerUI(option =>
+app.UseSwaggerUI(options =>
 {
 	// Display versions in ascending order by name
 	options.SwaggerEndpoint($"/swagger/swagger.json", $"swagger");
