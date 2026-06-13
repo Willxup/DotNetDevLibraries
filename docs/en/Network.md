@@ -74,7 +74,7 @@ public class TastService
 
 	public TastService(ITestApi testApi)
 	{
-		_testApi = testApi
+		_testApi = testApi;
 	}
 
 	/// <summary>
@@ -90,7 +90,7 @@ public class TastService
 	}
 
 	/// <summary>
-	/// Query
+	/// Add
 	/// </summary>
 	/// <returns></returns>
 	public async Task<bool> Add()
