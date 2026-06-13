@@ -148,14 +148,14 @@ public class SubscribeService : ICapSubscribe
 	public SubscribeService() { }
 
 	/// <summary>
-	/// Send a message
+	/// Consume a message
 	/// </summary>
 	/// <param name="msg">Message</param>
 	/// <returns></returns>
 	[CapSubscribe("test_message")]
 	public async Task ConsumeMessage(string msg)
 	{
-		Console.WriteLine($"消费消息：{msg}") // Consuming message.
+		Console.WriteLine($"消费消息：{msg}"); // Consuming message.
 	}
 }
 ```
