@@ -68,7 +68,7 @@ public async Task ImportMajorByExcel(IFormFile file)
 
 ## 快速上手
 
-下面是导出一个拥有下拉框数据源校验的`Excel`文件的源码，所有相关的封装方法都在[NPOI封装源码](#NPOI封装源码)中。
+下面是导出一个拥有下拉框数据源校验的`Excel`文件的源码，所有相关的封装方法都在[NPOI封装源码](#npoi封装源码)中。
 ```c#
 /// <summary>
 /// 导出EXCEL模板
@@ -396,7 +396,7 @@ public static void SetContentRows<T>(ISheet sheet, List<T> contentList, ICellSty
 /// </summary>
 /// <param name="sheet">当前表</param>
 /// <param name="dropDownList">下拉列表</param>
-/// <param name="column">需要下拉列表的单元格所在列/param>
+/// <param name="column">需要下拉列表的单元格所在列</param>
 /// <param name="startRow">需要下拉列表的单元格起始行(默认1)</param>
 /// <param name="lastRow">需要下拉列表的单元格结束行(默认65535)</param>
 public static void SetLessDropDownList(XSSFSheet sheet, string[] dropDownList, int column, int startRow = 1, int lastRow = 65535)
@@ -425,7 +425,7 @@ public static void SetLessDropDownList(XSSFSheet sheet, string[] dropDownList, i
 /// </summary>
 /// <param name="sheet">当前表</param>
 /// <param name="dropDownList">下拉列表</param>
-/// <param name="column">需要下拉列表的单元格所在列/param>
+/// <param name="column">需要下拉列表的单元格所在列</param>
 /// <param name="sheetName">表名(默认HiddenSheet)</param>
 /// <param name="startRow">需要下拉列表的单元格起始行(默认1)</param>
 /// <param name="lastRow">需要下拉列表的单元格结束行(默认65535)</param>

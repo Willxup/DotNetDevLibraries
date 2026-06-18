@@ -396,7 +396,7 @@ public static void SetContentRows<T>(ISheet sheet, List<T> contentList, ICellSty
 /// </summary>
 /// <param name="sheet">Current sheet</param>
 /// <param name="dropDownList">Dropdown list</param>
-/// <param name="column">Column containing dropdown cells/param>
+/// <param name="column">Column containing dropdown cells</param>
 /// <param name="startRow">First row of dropdown cells (default: 1)</param>
 /// <param name="lastRow">Last row of dropdown cells (default: 65535)</param>
 public static void SetLessDropDownList(XSSFSheet sheet, string[] dropDownList, int column, int startRow = 1, int lastRow = 65535)
@@ -425,7 +425,7 @@ public static void SetLessDropDownList(XSSFSheet sheet, string[] dropDownList, i
 /// </summary>
 /// <param name="sheet">Current sheet</param>
 /// <param name="dropDownList">Dropdown list</param>
-/// <param name="column">Column containing dropdown cells/param>
+/// <param name="column">Column containing dropdown cells</param>
 /// <param name="sheetName">Sheet name (default: HiddenSheet)</param>
 /// <param name="startRow">First row of dropdown cells (default: 1)</param>
 /// <param name="lastRow">Last row of dropdown cells (default: 65535)</param>
