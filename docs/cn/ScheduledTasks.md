@@ -109,8 +109,8 @@ RecurringJobOptions options = new()
 	MisfireHandling = MisfireHandlingMode.Relaxed
 };
 
-//实例化任务，只要继承了BaseTask的类就可以实例化
-BaseTask task = Activator.CreateInstance(typeof(TestSchedule)) as BaseTask;
+//实例化任务，只要继承了BaseScheduleJob的类就可以实例化
+BaseScheduleJob task = Activator.CreateInstance(typeof(TestSchedule)) as BaseScheduleJob;
 
 
 //添加定时任务 

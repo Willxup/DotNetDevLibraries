@@ -109,8 +109,8 @@ RecurringJobOptions options = new()
 	MisfireHandling = MisfireHandlingMode.Relaxed
 };
 
-// Create a job instance; classes that inherit BaseTask can be instantiated
-BaseTask task = Activator.CreateInstance(typeof(TestSchedule)) as BaseTask;
+// Create a job instance; classes that inherit BaseScheduleJob can be instantiated
+BaseScheduleJob task = Activator.CreateInstance(typeof(TestSchedule)) as BaseScheduleJob;
 
 
 // Add a recurring job
