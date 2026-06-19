@@ -433,7 +433,7 @@ Download the [MySQL installation package](https://dev.mysql.com/downloads/mysql/
 
 ```shell
 # Extract the archive
-tar -xvf  mysql-8.0.20-1.el7.x86_64.rpm-bundle.tar
+tar -xvf  mysql-8.0.21-1.el7.x86_64.rpm-bundle.tar
 
 # Install Common
 rpm -ivh mysql-community-common-8.0.21-1.el7.x86_64.rpm --nodeps --force

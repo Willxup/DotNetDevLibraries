@@ -435,7 +435,7 @@ WantedBy=multi-user.target
 
 ```shell
 #解压压缩包
-tar -xvf  mysql-8.0.20-1.el7.x86_64.rpm-bundle.tar 
+tar -xvf  mysql-8.0.21-1.el7.x86_64.rpm-bundle.tar
 
 #安装Common
 rpm -ivh mysql-community-common-8.0.21-1.el7.x86_64.rpm --nodeps --force
