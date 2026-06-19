@@ -6,9 +6,9 @@
 
 # 目录
 
-- [Apollo配置中心](#Apollo配置中心)
-- [MySQL](#MySQL)
-- [Redis](#Redis)
+- [Apollo配置中心](#apollo配置中心)
+- [MySQL](#mysql)
+- [Redis](#redis)
 
 
 
