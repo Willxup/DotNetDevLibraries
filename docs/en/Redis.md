@@ -159,7 +159,8 @@ The `Redis` helper reduces the need to repeat configuration for each `Redis` ope
 ```c#
 public interface IRedisHelper
 {
-
+	Task<string> StringGetAsync(string key);
+	Task<bool> StringSetAsync(string key, string value, TimeSpan? expiry = default, When when = When.Always);
 }
 ```
 
