@@ -369,4 +369,3 @@ public string GetNums(int num)
 	return str;
 }
 ```
-

@@ -408,4 +408,3 @@ WebApplication app = builder.Build();
 // Use the request and response logging middleware
 app.UseMiddleware<RequestLogMiddleware>();
 ```
-

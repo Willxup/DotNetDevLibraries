@@ -252,7 +252,7 @@ public class Test
     
     public async Task<List<Result>> Get(Search search)
     {
-    	return await _dbContext.Queryable<Table_Name>()
+        return await _dbContext.Queryable<Table_Name>()
             .Where(search) //查询条件
             .OrderBy(search) //排序
             .Select(new Result()) //查询结果
