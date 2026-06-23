@@ -267,7 +267,7 @@ var result = students
 if(obj == null) throw new NullReferenceException();
 
 // 简化的语法糖
-obj ?? throw new NullReferenceException();
+_ = obj ?? throw new NullReferenceException();
 ```
 
 ### 对象为空赋值

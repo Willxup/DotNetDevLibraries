@@ -267,7 +267,7 @@ var result = students
 if(obj == null) throw new NullReferenceException();
 
 // Shorter syntax
-obj ?? throw new NullReferenceException();
+_ = obj ?? throw new NullReferenceException();
 ```
 
 ### Assign a Value if an Object Is Null
