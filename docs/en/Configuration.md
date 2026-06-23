@@ -182,19 +182,19 @@ app.UseSwaggerUI(options =>
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // Configure compression
-services.Configure<BrotliCompressionProviderOptions>(options =>
+builder.Services.Configure<BrotliCompressionProviderOptions>(options =>
 {
 	options.Level = CompressionLevel.Fastest; // Compress as quickly as possible, even if the output is not compressed as much as it could be.
 });
 
 // Configure compression
-services.Configure<GzipCompressionProviderOptions>(options =>
+builder.Services.Configure<GzipCompressionProviderOptions>(options =>
 {
 	options.Level = CompressionLevel.Fastest; // Compress as quickly as possible, even if the output is not compressed as much as it could be.
 });
 
 // Response compression
-services.AddResponseCompression(options =>
+builder.Services.AddResponseCompression(options =>
 {
 	options.Providers.Add<BrotliCompressionProvider>(); // Brotli compression
 	options.Providers.Add<GzipCompressionProvider>(); // Gzip compression

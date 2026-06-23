@@ -182,19 +182,19 @@ app.UseSwaggerUI(options =>
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 //配置压缩方式
-services.Configure<BrotliCompressionProviderOptions>(options =>
+builder.Services.Configure<BrotliCompressionProviderOptions>(options =>
 {
 	options.Level = CompressionLevel.Fastest; //压缩应该尽快完成，即使生成的输出未以最佳方式压缩。
 });
 
 //配置压缩方式
-services.Configure<GzipCompressionProviderOptions>(options =>
+builder.Services.Configure<GzipCompressionProviderOptions>(options =>
 {
 	options.Level = CompressionLevel.Fastest; //压缩应该尽快完成，即使生成的输出未以最佳方式压缩。
 });
 
 //响应压缩
-services.AddResponseCompression(options =>
+builder.Services.AddResponseCompression(options =>
 {
 	options.Providers.Add<BrotliCompressionProvider>(); //br压缩
 	options.Providers.Add<GzipCompressionProvider>(); //gzip压缩
