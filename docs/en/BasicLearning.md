@@ -14,12 +14,12 @@
 
 # Official Resources
 
-Official documentation is the most reliable source. Microsoft's machine translations can be rough, but try the official docs first. Look elsewhere if they don't answer your question.
+Start with the official documentation. If it does not answer your question, look for other resources.
 
-- [C# official documentation (Chinese)](https://learn.microsoft.com/zh-cn/dotnet/csharp/)
-- [Run C# code online (Chinese)](https://learn.microsoft.com/zh-cn/dotnet/csharp/tour-of-csharp/#code-try-0)
-- [.NET official documentation (Chinese)](https://learn.microsoft.com/zh-cn/dotnet/fundamentals/)
-- [Download .NET (Chinese)](https://dotnet.microsoft.com/zh-cn/download/dotnet)
+- [C# official documentation](https://learn.microsoft.com/en-us/dotnet/csharp/)
+- [C# Hello World tutorial](https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/tutorials/hello-world)
+- [.NET official documentation](https://learn.microsoft.com/en-us/dotnet/fundamentals/)
+- [Download .NET](https://dotnet.microsoft.com/en-us/download/dotnet)
 
 # Development Tips
 
@@ -29,7 +29,7 @@ These practical tips can help you write less code and work more efficiently.
 
 > LINQ (Language-Integrated Query) is a query language in C#. It provides a unified way to query data more clearly and concisely.
 
-Official documentation: [https://learn.microsoft.com/zh-cn/dotnet/csharp/linq/](https://learn.microsoft.com/zh-cn/dotnet/csharp/linq/)
+Official documentation: [https://learn.microsoft.com/en-us/dotnet/csharp/linq/](https://learn.microsoft.com/en-us/dotnet/csharp/linq/)
 
 ### FROM
 
