@@ -148,7 +148,7 @@ var result2 = students.OrderByDescending(student => student.Age);
 
 > `Join`: Performs an inner join, returning matching elements from both data sources.
 >
-> `GroupJoin`: Performs a left outer join, returning every element from the left data source with a nested collection of its matches from the right data source.
+> `GroupJoin`: Groups matching elements from the right data source for each element on the left. It keeps every left-side element, with an empty group when there are no matches.
 
 ```cs
 // Sample data source

@@ -148,7 +148,7 @@ var result2 = students.OrderByDescending(student => student.Age);
 
 > `Join`：用于执行内连接操作，它会返回两个数据源中满足连接条件的元素的交集
 > 
-> `GroupJoin`：用于执行左外连接（left outer join）操作，它会返回左边数据源的所有元素，以及每个元素所匹配的右边数据源的元素组成的集合。(嵌套)
+> `GroupJoin`：为左侧数据源的每个元素，将右侧匹配的元素组成一个分组。左侧元素都会保留；没有匹配项时，该分组为空。
 
 ```cs
 // 示例数据源  
