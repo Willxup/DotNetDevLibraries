@@ -10,8 +10,6 @@
 
 `SqlSugar` 是一款 老牌` .NET`开源`ORM`框架，支持非常多的数据库，一些国产数据库也得到了很好的支持。`SqlSugar`使用起来也是非常的简单，会使用`Linq`基本可以快速上手。
 
-另外，`SqlSugar`解决问题的速度也很快，几乎当天解决，经过这么多年的迭代，几乎可以非常稳定的运行。
-
 支持的数据库：`Oracle`, `MySQL`, `SQLServer`, `PostgreSql`, `SQLite`, `达梦`, `人大金仓` 等
 
 `Github`：[![GitHub Release](https://img.shields.io/github/v/release/DotNetNext/SqlSugar)](https://github.com/DotNetNext/SqlSugar)

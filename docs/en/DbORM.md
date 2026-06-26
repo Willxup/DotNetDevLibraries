@@ -10,8 +10,6 @@
 
 `SqlSugar` is a long-standing open-source ORM for .NET. It supports many databases, including some developed in China. If you know LINQ, it is easy to get started.
 
-The author notes that issues are often resolved on the same day and that years of updates have made `SqlSugar` stable.
-
 Supported databases include `Oracle`, `MySQL`, `SQL Server`, `PostgreSQL`, `SQLite`, `Dameng`, and `Kingbase`.
 
 `GitHub`: [![GitHub Release](https://img.shields.io/github/v/release/DotNetNext/SqlSugar)](https://github.com/DotNetNext/SqlSugar)
