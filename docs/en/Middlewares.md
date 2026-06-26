@@ -656,7 +656,6 @@ kill -9 xxx
 
 #### Configure the Service File
 
-See service management for more details.
 ```bash
 # 7. Create the Redis systemd unit file
 cd /etc/systemd/system
@@ -698,7 +697,6 @@ vim /etc/redis/redis.conf
 
 Configure `redis` using the parameter descriptions below:
 ```shell
-# A Chinese redis.conf is saved on Alibaba Cloud Drive
 bind 127.0.0.1 # Comment out this setting. Set allowed IPs; with protected mode on and no password, set an external IP to allow access
 port 6379 # Redis port
 daemonize yes  # Enable daemon mode to run Redis in the background (set to no in Docker to avoid a conflict)

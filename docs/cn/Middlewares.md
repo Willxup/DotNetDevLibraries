@@ -660,7 +660,6 @@ kill -9 xxx
 
 #### 配置service文件
 
-可参考[[服务管理]]
 ```bash
 #7.创建redis的unit服务文件
 cd /etc/systemd/system
@@ -702,7 +701,6 @@ vim /etc/redis/redis.conf
 
 根据下面的参数解释，配置`redis`
 ```shell
-#可查看redis.conf中文版，阿里云盘保存
 bind 127.0.0.1 #注释该配置。配置可访问的IP，当保护模式打开时，如果未设置密码，需要配置外部ip使外部ip可访问
 port 6379 #redis端口号
 daemonize yes  #开启守护进程模式，redis后台运行(如果docker部署的话,要设置为no,否则后台运行会冲突)
